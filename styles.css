@@ -149,3 +149,7 @@ main {
 .actions {
   margin:12px;
 }
+
+.hole-cards {
+  cursor: pointer;
+}

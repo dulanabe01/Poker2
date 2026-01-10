@@ -60,6 +60,12 @@
         })
         
     }
+    const holeCards = document.querySelectorAll(".hole-cards");
+    holeCards.forEach(function(cards){
+        cards.addEventListener("click", function () {
+        console.log("hello world");
+        });
+    })
 })
 
 
