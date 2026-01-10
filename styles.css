@@ -8,6 +8,9 @@
 body {
   /* Dark felt base colour */
   background-color: #0e0f13;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: white;
 
   /* Spotlight-style lighting focused on the centre */
   background-image:
@@ -68,4 +71,81 @@ main {
   /* Make it visually dominant */
   min-height: 160px;
   grid-area: table;
+}
+
+.cards img {
+    height: 123px;
+    width: 88px; 
+}
+
+
+/* Base style for all buttons */
+.btn {
+  /* Space inside the button (top/bottom, left/right) */
+  padding: 6px 12px;
+
+  /* Slightly rounded corners */
+  border-radius: 8px;
+
+  /* Remove default browser border */
+  border: none;
+
+  /* Background colour */
+  background-color: #f2f2f2;
+
+  /* Text colour */
+  color: #222;
+
+  /* Font size */
+  font-size: 14px;
+
+  /* Slightly bold text for clarity */
+  font-weight: 600;
+
+  /* Show pointer cursor on hover */
+  cursor: pointer;
+
+  /* Remove default outline */
+  outline: none;
+
+  /* Smooth transitions for interaction feedback */
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+/* Hover state */
+.btn:hover {
+  /* Darken background slightly */
+  background-color: #e0e0e0;
+}
+
+/* Active (pressed) state */
+.btn:active {
+  /* Move button down slightly to feel clickable */
+  transform: translateY(1px);
+
+  /* Inset shadow for pressed effect */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled state (for later use) */
+.btn:disabled {
+  /* Muted background */
+  background-color: #ccc;
+
+  /* Muted text */
+  color: #777;
+
+  /* Show non-clickable cursor */
+  cursor: not-allowed;
+
+  /* Remove interaction effects */
+  transform: none;
+  box-shadow: none;
+}
+
+.actions {
+  margin:12px;
 }
