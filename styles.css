@@ -1,0 +1,71 @@
+/* Box-sizing reset: makes width/height behave sanely */
+*, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+} 
+
+body {
+  /* Dark felt base colour */
+  background-color: #0e0f13;
+
+  /* Spotlight-style lighting focused on the centre */
+  background-image:
+    radial-gradient(
+      circle at center,
+      rgba(40, 90, 60, 0.6) 0%,
+      rgba(20, 40, 30, 0.6) 35%,
+      rgba(14, 15, 19, 1) 70%
+    );
+
+  /* Ensure gradient fills screen */
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+    width: 100vw;
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+        'seat1 seat2 seat3'
+        'table table table'
+        'seat4 seat5 seat6';
+}
+
+/* === TEMP SCAFFOLD STYLES === */
+
+/* Poker seats (players) */
+.seat {
+  background: rgba(255, 255, 255, 0.06); /* soft contrast on dark bg */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* subtle outline */
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+
+  /* Just so they don’t collapse while empty */
+  min-height: 120px;
+}
+
+.seat1 { grid-area: seat1;}
+.seat2 { grid-area: seat2;}
+.seat3 { grid-area: seat3;}
+.seat4 { grid-area: seat4;}
+.seat5 { grid-area: seat5;}
+.seat6 { grid-area: seat6;}
+
+
+/* Central table / board area */
+.table {
+  background: rgba(40, 90, 60, 0.25); /* green felt hint */
+  border: 2px solid rgba(80, 160, 120, 0.4); /* stronger outline */
+  border-radius: 20px;
+  padding: 16px;
+  text-align: center;
+
+  /* Make it visually dominant */
+  min-height: 160px;
+  grid-area: table;
+}
