@@ -17,14 +17,8 @@
         let holeCardImages = document.querySelectorAll(".hole-card");
         holeCardImages.forEach((img, index) => {
             img.dataset.value=hole_cards[index];
-            img.src = `static/cards/${img.dataset.value}.svg`;
         });
 
-        let hands = document.querySelectorAll('.hole-cards');
-        hands.forEach((hand) => {
-            hand.classList.add("faceup");
-            hand.classList.remove("facedown");
-        })
     }
     
     document.querySelector('#flop').onclick = function () {
