@@ -16,8 +16,16 @@
         }
         let holeCardImages = document.querySelectorAll(".hole-card");
         holeCardImages.forEach((img, index) => {
-            img.src = `static/cards/${hole_cards[index]}.svg`;
+            img.dataset.value=hole_cards[index];
+            img.src = `static/cards/${img.dataset.value}.svg`;
         });
+
+        let hands = document.querySelectorAll('.hole-cards');
+        hands.forEach((hand) => {
+            hand.classList.add("faceup");
+            hand.classList.remove("facedown");
+        })
+    }
     
     document.querySelector('#flop').onclick = function () {
         // get 3 cards
@@ -29,25 +37,32 @@
         
         let flopCardImages = document.querySelectorAll(".flop-card");
         flopCardImages.forEach((img, index) => {
-            img.src = `static/cards/${flop_cards[index]}.svg`;
+            img.dataset.value=flop_cards[index];
+            img.src = `static/cards/${img.dataset.value}.svg`;
         })
 
+        // loop through all of the hole-cards and mark them now as faceup
+
+
     }
+
+        document.querySelector("#turn-button").onclick = function () {
+        // get turn card
+        turn_card = deck.pop(); 
+        turnCardImage = document.querySelector('.turn-card');
+        turnCardImage.dataset.value = turn_card;
+        turnCardImage.src = `static/cards/${turnCardImage.dataset.value}.svg`;
     }
 
     document.querySelector("#river-button").onclick = function () {
         // get river card
         river_card = deck.pop(); 
         riverCardImage = document.querySelector('.river-card');
-        riverCardImage.src = `static/cards/${river_card}.svg`;
+        riverCardImage.dataset.value=river_card;
+        riverCardImage.src = `static/cards/${riverCardImage.dataset.value}.svg`;
     }
 
-    document.querySelector("#turn-button").onclick = function () {
-        // get turn card
-        turn_card = deck.pop(); 
-        riverCardImage = document.querySelector('.turn-card');
-        riverCardImage.src = `static/cards/${turn_card}.svg`;
-    }
+
 
     document.querySelector('#reset-button').onclick = function () {
         // rebuild the deck:
@@ -60,10 +75,27 @@
         })
         
     }
+
+    // add card flip functionality to all of the cards
     const holeCards = document.querySelectorAll(".hole-cards");
-    holeCards.forEach(function(cards){
-        cards.addEventListener("click", function () {
-        console.log("hello world");
+    holeCards.forEach(function(hand){
+        hand.addEventListener("click", function () {
+
+
+        const cards = hand.querySelectorAll("img"); 
+
+        if (hand.classList.contains("facedown")) {
+            cards[0].src = `static/cards/${cards[0].dataset.value}.svg`;
+            cards[1].src = `static/cards/${cards[1].dataset.value}.svg`;
+        } else {
+            cards[0].src = "static/cards/1B.svg"; 
+            cards[1].src = "static/cards/1B.svg";
+        }
+
+
+        
+        hand.classList.toggle("faceup");
+        hand.classList.toggle("facedown");
         });
     })
 })
