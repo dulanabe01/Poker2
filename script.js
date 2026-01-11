@@ -19,6 +19,7 @@
             img.dataset.value=hole_cards[index];
         });
 
+
     }
     
     document.querySelector('#flop').onclick = function () {
@@ -59,13 +60,21 @@
 
 
     document.querySelector('#reset-button').onclick = function () {
+        console.log("hi");
         // rebuild the deck:
         deck = buildDeck(); 
         deck = shuffleDeck(deck);
         // make all the cards appear like backs
-        let allCardImages = document.querySelectorAll(".card");
-        allCardImages.forEach((img) => {
-            img.src = 'static/cards/1B.svg';
+        let hands = document.querySelectorAll(".cards");
+        hands.forEach((hand) => {
+            hand.classList.remove("faceup");
+            hand.classList.add("facedown");
+        })
+        console.log('hi again');
+        //refresh all the cards
+        let holeCards = document.querySelectorAll(".card");
+        holeCards.forEach((holeCard) => {
+            holeCard.src = 'static/cards/1B.svg';
         })
         
     }
