@@ -1,6 +1,7 @@
  let deck; 
  let hole_cards;
  let river_cards;
+ let dealerSeatIndex =0;
 
  document.addEventListener('DOMContentLoaded', function () {
 
@@ -77,6 +78,11 @@
             holeCard.src = 'static/cards/1B.svg';
         })
         
+        // move the dealer badge
+        // remove dealer badge from current person
+        
+        
+
     }
 
     // add card flip functionality to all of the cards

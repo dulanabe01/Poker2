@@ -33,18 +33,16 @@ main {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas: 
-        'seat1 seat2 seat3'
+        'seat0 seat1 seat2'
         'table table table'
-        'seat4 seat5 seat6';
+        'seat5 seat4 seat3';
 }
 
 /* === TEMP SCAFFOLD STYLES === */
 
 /* Poker seats (players) */
 .seat {
-  background: rgba(255, 255, 255, 0.06); /* soft contrast on dark bg */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* subtle outline */
-  border-radius: 12px;
+  
   padding: 12px;
   text-align: center;
 
@@ -150,6 +148,51 @@ main {
   margin:12px;
 }
 
+
+/* Make hole-cards the positioning anchor */
 .hole-cards {
-  cursor: pointer;
+  cursor: pointer; 
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.card-wrap {
+  position: relative;
+}
+
+/* Badge container floats above the cards */
+.badges {
+
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+
+
+/* Dealer badge */
+.badge--dealer {
+  /* Shape */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+
+  /* Center the "D" */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Look */
+  background-color: #000;              /* solid black fill */
+  border: 2px solid #8b5cf6;            /* purple outline */
+  color: #fff;
+
+  /* Text */
+  font-size: 20px;
+  font-weight: 700;
+
+  /* Positioning */
+  position: absolute;
+  top: 95px;
+  left: 5px;
 }
