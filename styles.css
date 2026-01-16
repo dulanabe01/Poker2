@@ -171,14 +171,13 @@ main {
 
 
 /* Dealer badge */
-.badge--dealer {
+.badge-dealer {
   /* Shape */
   width: 35px;
   height: 35px;
   border-radius: 50%;
 
   /* Center the "D" */
-  display: flex;
   align-items: center;
   justify-content: center;
 
@@ -195,4 +194,10 @@ main {
   position: absolute;
   top: 95px;
   left: 5px;
+
+  display: none;
+}
+
+.seat.is-dealer .badge-dealer {
+  display: flex;
 }

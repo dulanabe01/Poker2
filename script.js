@@ -1,7 +1,8 @@
  let deck; 
  let hole_cards;
  let river_cards;
- let dealerSeatIndex =0;
+ // I start at cut-off, so Oshen is dealer
+ let dealerSeatIndex = 5;
 
  document.addEventListener('DOMContentLoaded', function () {
 
@@ -60,8 +61,7 @@
 
 
 
-    document.querySelector('#reset-button').onclick = function () {
-        console.log("hi");
+    document.querySelector('#new-hand-button').onclick = function () {
         // rebuild the deck:
         deck = buildDeck(); 
         deck = shuffleDeck(deck);
@@ -71,7 +71,6 @@
             hand.classList.remove("faceup");
             hand.classList.add("facedown");
         })
-        console.log('hi again');
         //refresh all the cards
         let holeCards = document.querySelectorAll(".card");
         holeCards.forEach((holeCard) => {
@@ -79,7 +78,19 @@
         })
         
         // move the dealer badge
+
         // remove dealer badge from current person
+        // get the seat object of the person who is currently dealer
+        let current_dealer = document.querySelector(".is-dealer");
+        // remove them as dealer
+        current_dealer.classList.remove("is-dealer");
+
+        // increment dealer
+        dealerSeatIndex = (dealerSeatIndex+1)%6;
+
+        // get the new dealer
+        let new_dealer = document.querySelector(`.seat${dealerSeatIndex}`);
+        new_dealer.classList.add("is-dealer");
         
         
 
