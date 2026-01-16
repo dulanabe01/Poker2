@@ -2,7 +2,7 @@
  let hole_cards;
  let river_cards;
  // I start at cut-off, so Oshen is dealer
- let dealerSeatIndex = 5;
+ let dealerSeatIndex = 3;
 
  document.addEventListener('DOMContentLoaded', function () {
     
