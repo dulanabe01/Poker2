@@ -5,24 +5,6 @@
  let dealerSeatIndex = 5;
 
  document.addEventListener('DOMContentLoaded', function () {
-
-    document.querySelector('#deal').onclick = function () {
-        deck = buildDeck();
-        deck = shuffleDeck(deck);
-        // lets divy up the cards
-        let numplayers = 6;
-        hole_cards = []; 
-        for (let i = 0; i < numplayers*2; i++) {
-            let card1 = deck.pop();
-            hole_cards.push(card1);
-        }
-        let holeCardImages = document.querySelectorAll(".hole-card");
-        holeCardImages.forEach((img, index) => {
-            img.dataset.value=hole_cards[index];
-        });
-
-
-    }
     
     document.querySelector('#flop').onclick = function () {
         // get 3 cards
@@ -63,9 +45,21 @@
 
     document.querySelector('#new-hand-button').onclick = function () {
         // rebuild the deck:
-        deck = buildDeck(); 
+        deck = buildDeck();
         deck = shuffleDeck(deck);
-        // make all the cards appear like backs
+        // lets divy up the cards
+        let numplayers = 6;
+        hole_cards = []; 
+        for (let i = 0; i < numplayers*2; i++) {
+            let card1 = deck.pop();
+            hole_cards.push(card1);
+        }
+        let holeCardImages = document.querySelectorAll(".hole-card");
+        holeCardImages.forEach((img, index) => {
+            img.dataset.value=hole_cards[index];
+        });
+
+
         let hands = document.querySelectorAll(".cards");
         hands.forEach((hand) => {
             hand.classList.remove("faceup");
